@@ -1,0 +1,17 @@
+Yoda,48730,Rookie
+Yoda,10500,Amateur
+Chewy,11000,Pro
+Darth Vader,27410,Pro
+Luke,28500,Pro
+Jabba,21850,Amateur
+Jesus,53690,Rookie
+Mollie Jane ,36020,Rookie
+mj,16140,Amateur
+Mohammed,31880,Rookie
+Jasper,13390,Rookie
+laura,9900,Rookie
+laura,44870,Rookie
+laura,21980,Pro
+mj,17170,Amateur
+mj,10400,Pro
+Billy,18030,Rookie
