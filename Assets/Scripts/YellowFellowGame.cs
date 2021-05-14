@@ -265,22 +265,13 @@ public class YellowFellowGame : MonoBehaviour
             StartCoroutine(GameOver());
             
         }
-        if (activeScene.buildIndex % 2 == 0 && levelComplete)
+        if (levelComplete)
         {
             LevelComplete();
             
             levelComplete = false;
         }
-        else if (activeScene.buildIndex % 2 == 1 && levelComplete)
-        {
-            levelComplete = false;
-            BonusLevelComplete();
-        }
-
-
-
-        
-        
+      
     }
 
     void StartMainMenu()
@@ -357,33 +348,28 @@ public class YellowFellowGame : MonoBehaviour
     private void LevelComplete()
     {
         timeStopped = true;
-        
+
         audioSource.PlayOneShot(levelCompleteSound);
-        for (int i = 0; i < ghosts.Length; i++)
+
+        if (activeScene.buildIndex != 1)
         {
-            ghosts[i].SetActive(false);
+            for (int i = 0; i < ghosts.Length; i++)
+            {
+                ghosts[i].SetActive(false);
+            }
+            if (activeScene.buildIndex == 2)
+            {
+                ghost1.SetActive(false);
+                ghost2.SetActive(false);
+            }
         }
-        if(activeScene.buildIndex == 2)
-        {
-            ghost1.SetActive(false);
-            ghost2.SetActive(false);
-        }
+        
         
 
         StartCoroutine(FinalScore(Fellow.score));   
         
     }
 
-    private void BonusLevelComplete()
-    {
-        timeStopped = true;
-       
-
-        audioSource.PlayOneShot(levelCompleteSound);
-        
-        
-        StartCoroutine(FinalScore(Fellow.score));
-    }
 
     IEnumerator GameOver()
     {
@@ -469,6 +455,7 @@ public class YellowFellowGame : MonoBehaviour
 
 
         yield return new WaitForSeconds(1);
+
         if(Level.levelIndex == 4 && activeScene.buildIndex != 1)
         {
             GameComplete(); 
